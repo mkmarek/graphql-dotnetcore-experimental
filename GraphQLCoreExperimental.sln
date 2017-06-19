@@ -1,0 +1,50 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{20410A75-C8E6-45E4-B70A-9E88F8267359}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23E3096A-BB26-45FB-B449-69C5A3C58387}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{650371FA-695E-4487-B31C-A8049D9643E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{4457F826-BED6-498A-BD55-74CD33809CB7}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GraphQLCore.GraphiQLExample", "examples\GraphQLCore.GraphiQLExample\GraphQLCore.GraphiQLExample.xproj", "{7461D627-8C7A-4DDB-98A1-22C396AF749F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GraphQLCoreExperimental", "src\GraphQLCoreExperimental\GraphQLCoreExperimental.xproj", "{81039F15-A1A1-410F-83CA-471692A105CB}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GraphQLCoreExperimental.Tests", "test\GraphQLCoreExperimental.Tests\GraphQLCoreExperimental.Tests.xproj", "{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7461D627-8C7A-4DDB-98A1-22C396AF749F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7461D627-8C7A-4DDB-98A1-22C396AF749F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7461D627-8C7A-4DDB-98A1-22C396AF749F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7461D627-8C7A-4DDB-98A1-22C396AF749F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81039F15-A1A1-410F-83CA-471692A105CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81039F15-A1A1-410F-83CA-471692A105CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81039F15-A1A1-410F-83CA-471692A105CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81039F15-A1A1-410F-83CA-471692A105CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7461D627-8C7A-4DDB-98A1-22C396AF749F} = {4457F826-BED6-498A-BD55-74CD33809CB7}
+		{81039F15-A1A1-410F-83CA-471692A105CB} = {20410A75-C8E6-45E4-B70A-9E88F8267359}
+		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C} = {650371FA-695E-4487-B31C-A8049D9643E6}
+	EndGlobalSection
+EndGlobal
