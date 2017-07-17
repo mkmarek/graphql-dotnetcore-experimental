@@ -14,6 +14,11 @@
         {
         }
 
+        public override bool PreExecutionIncludeFieldIntoResult(GraphQLDirective directive, ISchemaRepository schemaRepository)
+        {
+            return false;
+        }
+
         public override bool PostExecutionIncludeFieldIntoResult(GraphQLDirective directive, ISchemaRepository schemaRepository, object value, object parentValue)
         {
             return false;

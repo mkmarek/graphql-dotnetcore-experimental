@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
 
   "dependencies": {
@@ -14,7 +14,9 @@
       "type": "build"
     },
     "System.Linq": "4.1.0",
-    "Newtonsoft.Json": "10.0.2"
+    "Newtonsoft.Json": "10.0.2",
+    "System.Reactive": "4.0.0-preview00001",
+    "System.Reactive.PlatformServices": "4.0.0-preview00001"
   },
 
   "frameworks": {
