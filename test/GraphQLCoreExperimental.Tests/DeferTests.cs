@@ -1,5 +1,5 @@
 ﻿namespace GraphQLCoreExperimental.Tests
-{   
+{
     using Directives;
     using GraphQLCore.Type;
     using Newtonsoft.Json;
@@ -94,10 +94,24 @@
             Assert.AreEqual(16, result.Count);
         }
 
-        private List<string> Observe(string query)
+        [Test]
+        public void DeferInIntrospection()
         {
-            var observable = this.schema.Subscribe(query, null, null);
-            return observable.ToArray().GetAwaiter().GetResult().Select(JsonConvert.SerializeObject).ToList();
+            var result = this.Observe(@"
+            {
+                __type(name: ""Test"") {
+                    name
+                    fields {
+                        name @defer
+                    }
+                }
+            }");
+
+            Assert.AreEqual(4, result.Count);
+            Assert.AreEqual("{\"data\":{\"__type\":{\"name\":\"Test\",\"fields\":[{},{},{}]}}}", result[0]);
+            Assert.AreEqual("{\"path\":[\"__type\",\"fields\",0,\"name\"],\"data\":\"a\"}", result[1]);
+            Assert.AreEqual("{\"path\":[\"__type\",\"fields\",1,\"name\"],\"data\":\"b\"}", result[2]);
+            Assert.AreEqual("{\"path\":[\"__type\",\"fields\",2,\"name\"],\"data\":\"c\"}", result[3]);
         }
 
         [SetUp]
@@ -106,11 +120,17 @@
             var query = new QueryType();
             this.schema = new GraphQLSchema();
             this.schema.AddOrReplaceDirective(new DeferDirective());
-            this.schema.AddOrReplaceDirective(new StreamDirective());
-            this.schema.AddOrReplaceDirective(new LiveDirective());
             this.schema.AddKnownType(query);
             this.schema.AddKnownType(new NestedType());
+            this.schema.AddKnownType(new TestType());
             this.schema.Query(query);
+        }
+
+        private IList<string> Observe(string query)
+        {
+            return this.schema.Subscribe(query).ToList()
+                .GetAwaiter().GetResult()
+                .Select(JsonConvert.SerializeObject).ToList();
         }
 
         private class QueryType : GraphQLObjectType
@@ -167,5 +187,16 @@
                 });
             }
         }
+
+        private class TestType : GraphQLObjectType
+        {
+            public TestType() : base("Test", null)
+            {
+                this.Field("a", () => this);
+                this.Field("b", () => this);
+                this.Field("c", () => this);
+            }
+        }
     }
 }
+

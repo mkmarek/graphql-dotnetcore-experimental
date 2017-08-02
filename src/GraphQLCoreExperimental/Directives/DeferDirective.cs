@@ -1,10 +1,8 @@
 ﻿namespace GraphQLCoreExperimental.Directives
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq.Expressions;
     using System.Threading.Tasks;
-    using GraphQLCore.Execution;
     using GraphQLCore.Language.AST;
     using GraphQLCore.Type.Directives;
     using GraphQLCore.Type.Translation;
@@ -16,9 +14,8 @@
         {
         }
 
-        public override bool PostponeNodeResolve(FieldScope scope, IWithDirectives node, out IEnumerable<Task<dynamic>> postponedNodes)
+        public override bool PostponeNodeResolve()
         {
-            postponedNodes = new[] { scope.GetSingleField((GraphQLFieldSelection)node) };
             return true;
         }
 
