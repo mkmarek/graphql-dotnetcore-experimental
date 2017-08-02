@@ -20,6 +20,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GraphQLCoreExperimental", "
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GraphQLCoreExperimental.Tests", "test\GraphQLCoreExperimental.Tests\GraphQLCoreExperimental.Tests.xproj", "{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GraphQLCore.WsMiddleware", "..\graphql-dotnetcore\src\GraphQLCore.WsMiddleware\GraphQLCore.WsMiddleware.xproj", "{01DBBA59-F867-43B5-9525-C620D82F4A31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{389FAD8F-0F1A-46C8-8471-B79E2B56DD0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01DBBA59-F867-43B5-9525-C620D82F4A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01DBBA59-F867-43B5-9525-C620D82F4A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01DBBA59-F867-43B5-9525-C620D82F4A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01DBBA59-F867-43B5-9525-C620D82F4A31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

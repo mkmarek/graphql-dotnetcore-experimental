@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Linq.Expressions;
     using System.Threading.Tasks;
     using GraphQLCore.Execution;
@@ -9,10 +10,10 @@
     using GraphQLCore.Type.Directives;
     using GraphQLCore.Type.Translation;
 
-    public class DeferDirective : GraphQLDirectiveType
+    public class LiveDirective : GraphQLDirectiveType
     {
-        public DeferDirective() 
-            : base("defer", "Defers an execution of selected field and returns it as part of patch", DirectiveLocation.FIELD)
+        public LiveDirective()
+            : base("live", null, DirectiveLocation.FIELD)
         {
         }
 
@@ -24,17 +25,12 @@
 
         public override bool PreExecutionIncludeFieldIntoResult(GraphQLDirective directive, ISchemaRepository schemaRepository)
         {
-            return false;
-        }
-
-        public override bool PostExecutionIncludeFieldIntoResult(GraphQLDirective directive, ISchemaRepository schemaRepository, object value, object parentValue)
-        {
-            return false;
+            return true;
         }
 
         public override LambdaExpression GetResolver(Func<Task<object>> valueGetter, object parentValue)
         {
-            Expression<Func<Task<object>>> resolver = () => valueGetter();
+            Expression<Func<object>> resolver = () => null;
 
             return resolver;
         }
